@@ -14,7 +14,7 @@ client = discord.Client()
 server = discord.Guild
 helper = discord.utils
 
-
+#db["bot_symbol"] = "$"
 #moderatorRoles = RoleList()
 #moderatorRoles.roles.append('Hi')
 #moderatorRoles.roles.pop()

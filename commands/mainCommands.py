@@ -1,5 +1,5 @@
-from ..helperFunctions import utilFunctions as util
-from ..main import bot_symbol
+from helperFunctions import utilFunctions as util
+from main import bot_symbol
 
 commandList = (
   "Here are a list of commands: \n" +
@@ -26,12 +26,12 @@ ownerCommandsList = (
 
 def userCommands(msg, bot_symbol):
   if msg.startswith(f"{bot_symbol}help"):
-    await msg.channel.send("commandsList")
-    return
+     msg.channel.send("commandsList")
+     return
   
 
 def moderatorCommands(msg, bot_symbol, modRoles):
-  if await util.checkModRole(msg, modRoles) or msg.author.id == msg.guild.owner.id:
+  if util.checkModRole(msg, modRoles) or msg.author.id == msg.guild.owner.id:
     # Call Mod Commands
     print(" ")
 
