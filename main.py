@@ -4,7 +4,9 @@ import sys
 import asyncio
 from replit import db
 from keep_alive import keep_alive
-from helperFunctions import *
+from helperFunctions.utilFunctions import *
+from helperFunctions.initFunctions import *
+from commands.mainCommands import *
 
 # Global Variables
 version = discord.__version__
@@ -12,9 +14,14 @@ client = discord.Client()
 server = discord.Guild
 helper = discord.utils
 
-
-# Database Variables
-
+sayHi()
+#moderatorRoles = RoleList()
+#moderatorRoles.roles.append('Hi')
+#moderatorRoles.roles.pop()
+# Database Initialised Variables
+#db["modRoles"] = moderatorRoles
+#keys = db.keys()
+#moderators = db["moderators"]
 
 @client.event
 async def on_ready():
@@ -30,7 +37,9 @@ async def on_message(message):
   if msg.author == client.user:
     return
 
-  #
+  # Commands
+  userCommands(msg, bot_symbol)
+  moderatorCommands(msg, bot_symbol, moderators)
 
 
 keep_alive()
